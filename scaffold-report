@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+@months = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
+
+print "Date of Battle (YYYYMMDD)? "
+@date_str = gets.chomp
+
+@month = @date_str[4,2].sub /^0/, ""
+
+@friendly_date_str = "#{@date_str[6,8]} #{@months[@month.to_i]} #{@date_str[0,4]}"
+
+Dir.mkdir("LotR-#{@date_str}", 0755)
+Dir.mkdir("LotR-#{@date_str}/Thumbnails", 0755)
+Dir.mkdir("LotR-#{@date_str}/Images", 0755)
+
+@index = File.read(".scaffolds/lotr-template.html", :encoding => "UTF-8")
+
+print "Scenario Name? "
+@scenario_name = gets.chomp
+
+@index.gsub!(/\{\{SCENARIO_NAME\}\}/, @scenario_name)
+@index.gsub!(/\{\{DATE_STR\}\}/, @friendly_date_str)
+
+File.write("LotR-#{@date_str}/index.html", @index, :encoding => "UTF-8")

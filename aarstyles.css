@@ -1,0 +1,49 @@
+br {
+    clear: left;
+}
+
+h1 {
+    font-family: Verdana, sans-serif;
+    text-align: center;
+}
+
+h3 {
+    font-family: Verdana, sans-serif;
+}
+
+img {
+    border-size: 1px;
+    border-color: #0000EE;
+    float: left;
+    margin: 3px;
+}
+
+body {
+    font-family: Georgia, serif;
+}
+
+p {
+    line-height: 140%;
+}
+
+p.initialCap:first-letter {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.smallCaption {
+    font-size: x-small;
+}
+
+.reportToc {
+    float: left;
+}
+
+.reportToc .thumbnail img {
+    width: 250px;
+    height: 188px;
+}
+
+a {
+    text-decoration: none;
+}
