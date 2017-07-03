@@ -14,11 +14,22 @@ Dir.mkdir("LotR-#{@date_str}/Thumbnails", 0755)
 Dir.mkdir("LotR-#{@date_str}/Images", 0755)
 
 @index = File.read(".scaffolds/lotr-template.html", :encoding => "UTF-8")
+@turn  = File.read(".scaffolds/lotr-template-turn.html", :encoding => "UTF-8")
 
 print "Scenario Name? "
 @scenario_name = gets.chomp
 
 @index.gsub!(/\{\{SCENARIO_NAME\}\}/, @scenario_name)
 @index.gsub!(/\{\{DATE_STR\}\}/, @friendly_date_str)
+
+print "Number of Turns? "
+@num_turns = gets.chomp.to_i
+
+@turn_text = ""
+(1..@num_turns).each do |n|
+  @turn_text << @turn.gsub(/\{\{TURN_NUM\}\}/, n.to_s)
+end
+
+@index.gsub!(/\{\{TURNS\}\}/, @turn_text)
 
 File.write("LotR-#{@date_str}/index.html", @index, :encoding => "UTF-8")
