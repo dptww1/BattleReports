@@ -9,7 +9,7 @@ print "Directory Name? "
 
 @dir_name.chop if @dir_name =~ %r{/$}
 
-print "Thumbnail image name? "
+print "Thumbnail image name (e.g. IMG_1229.JPG)? "
 @img_name = gets.chomp
 
 fh = File.open("#{@dir_name}/index.html")
