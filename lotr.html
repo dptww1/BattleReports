@@ -10,15 +10,19 @@
 </head>
 <body onload="setupZoom()">
 
-<script>
-if (screen.width <= 800) {
-    if (confirm("Would you prefer to use the mobile site?")) {
-        window.location = "lotr-amp.html";
-    }
+<style>
+@media screen and (min-width: 801px) {
+  .mobileOnly {
+    display: none;
+  }
 }
-</script>
+</style>
 
 <h1>Battle Reports: Middle Earth Strategy Battle Game</h1>
+
+<div class="mobileOnly">
+  <a href="./lotr-amp.html">Mobile Version</a>
+</div>
 
 <hr><!-- ============================================================ -->
 
