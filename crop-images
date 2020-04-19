@@ -7,7 +7,10 @@ abort "usage: cd LotR-yyyymmdd; crop-images /path/to/image/location" unless ARGV
 @src_dir = ARGV[0]
 
 handle = File.open("index.html")
-Oga.parse_html(handle).css("a").each do |link|
+
+@doc = Oga.parse_html(handle)
+
+@doc.css("a").each do |link|
   raw_link = link.get("href")
   if raw_link =~ %r{^Images/}
     file_name = raw_link.sub(%r{^Images/}, "")
@@ -19,5 +22,18 @@ Oga.parse_html(handle).css("a").each do |link|
     else
       puts "#{file_path} doesn't exist!"
     end
+  end
+end
+
+img = @doc.at_css("img")
+src = img.get("src")
+if src =~ %r{^Images/}
+  file_name = src.sub(%r{^Images/}, "")
+  file_path = "#{@src_dir}/#{file_name}"
+  if File.exist? file_path
+    puts "Processing #{file_path}"
+    `sips -z 768 1024 '#{file_path}' --out Images/#{file_name}`
+  else
+    puts "#{file_path} doesn't exist!"
   end
 end
