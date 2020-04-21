@@ -32,6 +32,7 @@ if src =~ %r{^Images/}
   file_path = "#{@src_dir}/#{file_name}"
   if File.exist? file_path
     puts "Processing #{file_path}"
+    `sips -z 188 250 '#{file_path}' --out Thumbnails/th#{file_name}`
     `sips -z 768 1024 '#{file_path}' --out Images/#{file_name}`
   else
     puts "#{file_path} doesn't exist!"
