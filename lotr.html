@@ -9,6 +9,7 @@
 <script>
 const scenarios = [
 <!-- NEXT -->
+{ date: "2020-05-09", dir: "LotR-20200509", img: "thBanner.jpg", src: "wir", idx: 5, name: "The White Wizard"  },
 { date: "2020-04-18", dir: "LotR-20200418", img: "thIMG_1940.JPG", src: "sots2", idx: 19, name: "Road to Rivendell"  },
 { date: "2020-03-29", dir: "LotR-20200329", img: "thIMG_1910.JPG", src: "sots2", idx: 18, name: "The Wolves of Winter" },
 { date: "2020-03-18", dir: "LotR-20200318", img: "thIMG_1888.JPG", src: "sots2", idx: 17, name: "Battle of Greenfields" },
@@ -110,7 +111,9 @@ m.mount(document.body, {
         m("option[value=site]", "Shadow in the East (2005)"),
         m("option[value=tba]", "There and Back Again (2006)"),
         m("option[value=ttt]", "The Two Towers (2002)"),
-        m("option[value=tttjb]", "The Two Towers (2006)")),
+        m("option[value=tttjb]", "The Two Towers (2006)"),
+        m("option[value=wir]", "War in Rohan (2019)")),
+
       m("label.filter", "Sort "),
       m("select", { onchange: ev => scenarios.sort(sorters[ev.target.value]) },
         m("option[value=newest]", "Newest"),
