@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>METADATA_INFO</key>
+	<string>Stop Motion Studio, (c)2010-16 Cateater, LLC</string>
+	<key>METADATA_PRODUCT</key>
+	<string>com.cateater.macapps.stopmotionstudiopro</string>
+	<key>METADATA_PRODUCT_VERSION</key>
+	<string>8576</string>
+	<key>METADATA_VERSION</key>
+	<real>7</real>
+	<key>META_PROJECT_CONFIG_CAPTURE_FILTER_CONTRAST</key>
+	<real>0.0</real>
+	<key>META_PROJECT_CONFIG_CAPTURE_FILTER_EXPOSURE</key>
+	<real>0.0</real>
+	<key>META_PROJECT_CONFIG_CAPTURE_FILTER_SATURATION</key>
+	<real>0.0</real>
+	<key>META_PROJECT_ID</key>
+	<string>8CA59C21-1CFE-4A5B-9FE5-63CD0C823796</string>
+	<key>META_RECORD_OUTLINE_DATA</key>
+	<dict>
+		<key>META_RECORD_OUTLINE_DIRECTED_BY</key>
+		<string>Me</string>
+		<key>META_RECORD_OUTLINE_EDITED_BY</key>
+		<string>Me</string>
+		<key>META_RECORD_OUTLINE_MOVIE_NAME</key>
+		<string>Grishnakh's End - Turn 7</string>
+		<key>META_RECORD_OUTLINE_MOVIE_TAGLINE</key>
+		<string></string>
+		<key>META_RECORD_OUTLINE_MUSIC_BY</key>
+		<string>iTunes</string>
+		<key>META_RECORD_OUTLINE_PRODUCED_BY</key>
+		<string>Me</string>
+		<key>META_RECORD_OUTLINE_STAR</key>
+		<string>Pinky and Brain</string>
+		<key>META_RECORD_OUTLINE_STUDIO</key>
+		<string>Acme Studios</string>
+		<key>META_RECORD_OUTLINE_WRITTEN_BY</key>
+		<string>Me</string>
+	</dict>
+	<key>PlayAsLoop</key>
+	<true/>
+	<key>ProductVersion</key>
+	<real>5</real>
+	<key>RecordDateCreated</key>
+	<real>1589506947.1217861</real>
+	<key>RecordFPS</key>
+	<integer>3</integer>
+	<key>RecordOriginalName</key>
+	<string>My Stop Motion Movie</string>
+</dict>
+</plist>
