@@ -9,6 +9,7 @@
 <script>
 const scenarios = [
 <!-- NEXT -->
+{ date: "2020-08-30", dir: "LotR-20200830", img: "thIMG_2203.JPG", src: "wir", idx:11, name: "The Deeping Wall is Breached" },
 { date: "2020-08-03", dir: "LotR-20200803", img: "thIMG_2171.JPG", src: "wir", idx:7, name: "Warg Attack" },
 { date: "2020-07-26", dir: "LotR-20200726", img: "thIMG_2169.JPG", src: "wir", idx:4, name: "Ambush at Night" },
 { date: "2020-07-11", dir: "LotR-20200711", img: "thIMG_2141.JPG", src: "wir", idx: 20, name: "The Uruk-hai Retreat" },
@@ -129,7 +130,7 @@ m.mount(document.body, {
     scenarios.map(s =>
                   !bookName || s.src == bookName
                     ? m(".reportToc",
-                        m(".thumbnail", m("a", {href: s.dir + "/"}, m("img", {src: s.dir + "/Thumbnails/" + s.img}))),
+                        m(".thumbnail", m("a", {href: s.dir + "/"}, m("img", {src: s.dir + "/Thumbnails/" + s.img, width: 250, height: 188 }))),
                         m(".titleLink", m("a", {href: s.dir + "/"}, s.name)),
                         m(".date", s.date)
                        )
