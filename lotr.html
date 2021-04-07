@@ -9,9 +9,11 @@
 <script>
 const scenarios = [
 <!-- NEXT -->
-{ date: "2020-08-30", dir: "LotR-20200830", img: "thIMG_2203.JPG", src: "wir", idx:11, name: "The Deeping Wall is Breached" },
-{ date: "2020-08-03", dir: "LotR-20200803", img: "thIMG_2171.JPG", src: "wir", idx:7, name: "Warg Attack" },
-{ date: "2020-07-26", dir: "LotR-20200726", img: "thIMG_2169.JPG", src: "wir", idx:4, name: "Ambush at Night" },
+{ date: "2021-02-21", dir: "LotR-20210221", img: "thIMG_2304.JPG", src: "wir", idx: 16, name: "Éomer's Return" },
+{ date: "2020-09-15", dir: "LotR-20200915", img: "thIMG_2229.JPG", src: "wir", idx: 10, name: "Plant the Charges" },
+{ date: "2020-08-30", dir: "LotR-20200830", img: "thIMG_2203.JPG", src: "wir", idx: 11, name: "The Deeping Wall is Breached" },
+{ date: "2020-08-03", dir: "LotR-20200803", img: "thIMG_2172.JPG", src: "wir", idx: 7, name: "Warg Attack" },
+{ date: "2020-07-26", dir: "LotR-20200726", img: "thIMG_2169.JPG", src: "wir", idx: 4, name: "Ambush at Night" },
 { date: "2020-07-11", dir: "LotR-20200711", img: "thIMG_2141.JPG", src: "wir", idx: 20, name: "The Uruk-hai Retreat" },
 { date: "2020-06-27", dir: "LotR-20200627", img: "thIMG_2109.JPG", src: "wir", idx: 15, name: "Ride Out" },
 { date: "2020-06-20", dir: "LotR-20200620", img: "thIMG_2104.JPG", src: "wir", idx: 13, name: "The Causeway" },
@@ -55,7 +57,7 @@ const scenarios = [
 { date: "2016-10-21", dir: "LotR-20161021", img: "thIMG_0659.JPG", src: "site", idx: 3, name: "Gathering Information" },
 { date: "2016-07-27", dir: "LotR-20160727", img: "thIMG_0600.JPG", src: "site", idx: 2, name: "Pursuit Through Ithilien" },
 { date: "2016-06-04", dir: "LotR-20160604", img: "thIMG_0584.JPG", src: "site", idx: 1, name: "The Fall of Amon Barad" },
-{ date: "2016-05-28", dir: "LotR-20160528", img: "thIMG_0542.JPG", src: "site", idx: 1, name: "Roast Mutton" },
+{ date: "2016-05-28", dir: "LotR-20160528", img: "thIMG_0542.JPG", src: "uj", idx: 1, name: "Roast Mutton" },
 { date: "2016-05-07", dir: "LotR-20160507", img: "thIMG_0508.JPG", src: "dos", idx: 4, name: "Barrels Out of Bond" },
 { date: "2015-10-11", dir: "LotR-20151011", img: "img002.jpg", src: "tttjb", idx: 8, name: "The Last March of the Ents II" },
 { date: "2015-09-22", dir: "LotR-20150922", img: "img015.jpg", src: "tttjb", idx: 8, name: "The Last March of the Ents" },
@@ -119,6 +121,7 @@ m.mount(document.body, {
         m("option[value=tba]", "There and Back Again (2006)"),
         m("option[value=ttt]", "The Two Towers (2002)"),
         m("option[value=tttjb]", "The Two Towers (2006)"),
+        m("option[value=uj]", "Unexpected Journey ()"),
         m("option[value=wir]", "War in Rohan (2019)")),
 
       m("label.filter", "Sort "),
