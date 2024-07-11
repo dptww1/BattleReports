@@ -60,3 +60,35 @@ label.filter {
 select.filter {
     margin-right: 1em;
 }
+
+.heroStats {
+  border: 1px solid #eee;
+  border-collapse: collapse;
+
+}
+
+.heroStats th {
+  background-color: #ccc;
+}
+
+.heroStats td,th {
+  border: 1pt solid #ccc;
+  font-family: Trebuchet MS, sans-serif;
+  font-size: small;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  text-align: left;
+}
+
+.heroStats .box {
+  border: 1pt black solid;
+  display: inline-block;
+  font-size: 8pt;
+  margin-right: 0.2em;
+  min-width: 1em;
+  text-align: center;
+}
+
+.heroStats .dead {
+  text-decoration: line-through;
+}
