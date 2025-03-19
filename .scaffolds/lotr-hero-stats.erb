@@ -1,0 +1,35 @@
+<tr>
+  <td><%= @hero["name"] %></td>
+  <td>
+  <% @hero["wounds"].each do |w| %>
+    <%= stat_box(hash_params[:turn], w) %>
+  <% end %>
+  </td>
+  <td>
+    <% if @hero["might"] %>
+      <% @hero["might"].each do |m| %>
+        <%= stat_box(hash_params[:turn], m) %>
+      <% end %>
+    <% else %>
+      -
+    <% end %>
+  </td>
+  <td>
+    <% if @hero["will"] %>
+      <% @hero["will"].each do |m| %>
+        <%= stat_box(hash_params[:turn], m) %>
+      <% end %>
+    <% else %>
+      -
+    <% end %>
+  </td>
+  <td>
+    <% if @hero["fate"] %>
+      <% @hero["fate"].each do |m| %>
+        <%= stat_box(hash_params[:turn], m) %>
+      <% end %>
+    <% else %>
+      -
+    <% end %>
+  </td>
+</tr>

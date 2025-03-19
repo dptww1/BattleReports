@@ -1,6 +1,25 @@
 #!/usr/bin/env ruby
 
+require 'erb'
+require 'json'
+
 @months = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
+
+#========================================================================
+# Methods used within templates
+#------------------------------------------------------------------------
+def render(path, **hash_params)
+  full_path = File.join(__dir__, ".scaffolds", path)
+  ERB.new(File.read(full_path)).result(binding)
+end
+
+def stat_box(turn, box)
+  "<span class=\"box\">#{box =~ /\d+/ && box.to_i <= turn ? box : '&nbsp;'}</span>"
+end
+
+#========================================================================
+# Main program
+#------------------------------------------------------------------------
 
 print "Date of Battle (YYYYMMDD)? "
 @date_str = gets.chomp
@@ -9,27 +28,19 @@ print "Date of Battle (YYYYMMDD)? "
 
 @friendly_date_str = "#{@date_str[6,8]} #{@months[@month.to_i]} #{@date_str[0,4]}"
 
-Dir.mkdir("LotR-#{@date_str}", 0755)
-Dir.mkdir("LotR-#{@date_str}/Thumbnails", 0755)
-Dir.mkdir("LotR-#{@date_str}/Images", 0755)
+Dir.mkdir("LotR-#{@date_str}", 0755) unless Dir.exist?("LotR-#{@date_str}")
+Dir.mkdir("LotR-#{@date_str}/Thumbnails", 0755) unless Dir.exist?("LotR-#{@date_str}/Thumbnails")
+Dir.mkdir("LotR-#{@date_str}/Images", 0755) unless Dir.exist?("LotR-#{@date_str}/Images")
 
-@index = File.read(".scaffolds/lotr-template.html", :encoding => "UTF-8")
-@turn  = File.read(".scaffolds/lotr-template-turn.html", :encoding => "UTF-8")
+stats_file_name = "LotR-#{@date_str}/hero-stats.json"
+@hero_stats = File.exist?(stats_file_name) ? JSON.parse(File.read(stats_file_name)) : nil
 
 print "Scenario Name? "
 @scenario_name = gets.chomp
 
-@index.gsub!(/\{\{SCENARIO_NAME\}\}/, @scenario_name)
-@index.gsub!(/\{\{DATE_STR\}\}/, @friendly_date_str)
-
 print "Number of Turns? "
 @num_turns = gets.chomp.to_i
 
-@turn_text = ""
-(1..@num_turns).each do |n|
-  @turn_text << @turn.gsub(/\{\{TURN_NUM\}\}/, n.to_s)
-end
-
-@index.gsub!(/\{\{TURNS\}\}/, @turn_text)
+@index = render("lotr-template.erb", num_turns: @num_turns, friendly_date: @friendly_date_str)
 
 File.write("LotR-#{@date_str}/index.html", @index, :encoding => "UTF-8")

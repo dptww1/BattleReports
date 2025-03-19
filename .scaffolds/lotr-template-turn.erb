@@ -1,0 +1,20 @@
+
+<hr><!-- ============================================================ -->
+
+<h3>Turn <%= hash_params[:turn] %></h3>
+
+<p>
+<a href="Images/IMG_0562.JPG"><img src="Thumbnails/thIMG_0562.JPG" alt="Turn <%= hash_params[:turn] %>" title="Turn <%= hash_params[:turn] %>" width="350" height="263"></a>
+</p>
+
+<p><br></p>
+
+<p class="initialCap">X Priority, 1-1.</p>
+
+<p class="initialCap"></p>
+
+<% if @hero_stats %>
+  <%= render "lotr-hero-stats-table.erb", turn: hash_params[:turn] %>
+<% end %>
+
+<p class="initialCap">Casualties: Good 0, Evil 0</p>

@@ -1,0 +1,7 @@
+<table class="heroStats">
+  <tr><th>Character</th><th>Wounds</th><th>Might</th><th>Will</th><th>Fate</th></tr>
+  <% @hero_stats["heroes"].each do |hero| %>
+    <% @hero = hero %>
+    <%= render "lotr-hero-stats.erb", turn: hash_params[:turn] %>
+  <% end %>
+</table>

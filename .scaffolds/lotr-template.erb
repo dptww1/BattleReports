@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>MESBG - {{SCENARIO_NAME}}</title>
+<title>MESBG - <%= @scenario_name %></title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../aarstyles.css" type="text/css">
@@ -11,10 +11,10 @@
 <body onload="setupZoom()">
 <p><a href="../lotr.html">Other SBG Battles</a></p>
 
-<h1>{{SCENARIO_NAME}}</h1>
+<h1><%= @scenario_name %></h1>
 
 <div align="center">
-  <img class="headerImage" src="Images/IMG_1940.JPG" alt="{{SCENARIO_NAME}}" title="{{SCENARIO_NAME}}" style="float:none">
+  <img class="headerImage" src="Images/IMG_1940.JPG" alt="<%= @scenario_name %>" title="<%= @scenario_name %>" style="float:none">
   <br>
 </div>
 
@@ -50,7 +50,11 @@ ringwraith in much the same pose.</p>
 <p class="initialCap">The campfires are placed at least 6" away from the tower and each other.  The Warriors of Minas Tirith and Cirion
 begin equally distributed amongst the campfires, while the rangers deploy near the board edge.  I placed the latter in a sort of
 hexagon pattern; there are two which are out of frame below the edge of the pictures.</p>
-{{TURNS}}
+
+<% (1..hash_params[:num_turns]).each do |n| %>
+  <%= render "lotr-template-turn.erb", turn: n %>
+<% end %>
+
 <hr><!-- ============================================================ -->
 
 <h3>Post-game Thoughts</h3>
@@ -83,7 +87,7 @@ range, and/or giving them a penalty on their shooting roll.  It <i>is</i> suppos
 <p class="footer">
 <a href="mailto:dave@davetownsend.org"><i>Dave Townsend</i></a> /
 <a href="mailto:dave@davetownsend.org">dave@davetownsend.org</a> /
-{{DATE_STR}}
+<%= hash_params[:friendly_date] %>
 </p>
 
 </body>
