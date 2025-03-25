@@ -1,0 +1,46 @@
+{
+  "heroes": [
+    {
+      "name": "\"Boromir\"",
+      "wounds": [ "5" , " " ],
+      "might": [ "4", "6" ],
+      "will": [ "3" ],
+      "fate": [ " " ]
+    },
+    {
+      "name": "\"Faramir\"",
+      "wounds": [ " " , " " ],
+      "might": [ "6", "10" ],
+      "will": [ " " ],
+      "fate": [ " " ]
+    },
+    {
+      "name": "\"Madril\"",
+      "wounds": [ "8" , " " ],
+      "might": [ "5", "10" ],
+      "will": [ "8" ],
+      "fate": [ " " ]
+    },
+    {
+      "name": "Witch-King",
+      "wounds": [ " " ],
+      "might": [ "12", "12", " " ],
+      "will": [ "8", "8", "8", "10", "10", "10", "10", "11", "11", "11", "11", "12", "12", "12", " " ],
+      "fate": [ "7", "7", " " ]
+    },
+    {
+      "name": "Orc Captain w/helmet",
+      "wounds": [ " " , " " ],
+      "might": [ "5", "11" ],
+      "will": [ " " ],
+      "fate": [ " " ]
+    },
+    {
+      "name": "Orc Captain w/o helmet",
+      "wounds": [ "6" , "10" ],
+      "might": [ "4", "6" ],
+      "will": [ " " ],
+      "fate": [ "10" ]
+    }
+  ]
+}
