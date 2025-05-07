@@ -1,5 +1,5 @@
 <tr>
-  <td><%= @hero["name"] %></td>
+  <td <%= @hero["wounds"][-1].match?(/\d/) && hash_params[:turn] >= @hero["wounds"][-1].to_i ? "class='dead'" : ""%> ><%= @hero["name"] %></td>
   <td>
   <% @hero["wounds"].each do |w| %>
     <%= stat_box(hash_params[:turn], w) %>
