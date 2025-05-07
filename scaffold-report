@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'erb'
+require 'fileutils'
 require 'json'
 
 @months = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
@@ -32,6 +33,10 @@ Dir.mkdir("LotR-#{@date_str}", 0755) unless Dir.exist?("LotR-#{@date_str}")
 Dir.mkdir("LotR-#{@date_str}/Thumbnails", 0755) unless Dir.exist?("LotR-#{@date_str}/Thumbnails")
 Dir.mkdir("LotR-#{@date_str}/Images", 0755) unless Dir.exist?("LotR-#{@date_str}/Images")
 
+if File.exist?("hero-stats.json")
+  FileUtils.mv("hero-stats.json", "LotR-#{@date_str}")
+end
+
 stats_file_name = "LotR-#{@date_str}/hero-stats.json"
 @hero_stats = File.exist?(stats_file_name) ? JSON.parse(File.read(stats_file_name)) : nil
 
@@ -42,5 +47,7 @@ print "Number of Turns? "
 @num_turns = gets.chomp.to_i
 
 @index = render("lotr-template.erb", num_turns: @num_turns, friendly_date: @friendly_date_str)
+           .gsub(/<\/span>\s*\n\s*\n/, "</span>\n")
+           .gsub(/<td>\s*\n\s*\n/, "<td>\n")
 
 File.write("LotR-#{@date_str}/index.html", @index, :encoding => "UTF-8")
