@@ -1,0 +1,59 @@
+#!ruby
+
+require '/Users/Dave/GitHub/sbg_inv_fe/bin/lib/scenario'
+
+abort 'usage: ./mkherostats <path/to/scenario.json>' unless ARGV.size == 1
+
+scenario = Scenario.new(ARGV[0])
+
+#========================================================================
+def field_str(field_name, num, line_end)
+  "\"#{field_name}\": [#{'" ", ' * (num - 1)}\" \"]#{line_end}"
+end
+
+#========================================================================
+# MAIN PROGRAM
+#------------------------------------------------------------------------
+entries = []
+
+['good', 'evil'].each do |side|
+  scenario.order_of_battle(side).each do |char|
+    name = char['name']
+    stats = scenario.statline_for(name)
+
+    wounds = stats[6]
+    might = stats[9].to_i
+    will = stats[10].to_i
+    fate = stats[11].to_i
+
+    # No need to track stats unless the characters has
+    #  >1 Wounds, Might, Will, and/or Fate
+    next unless wounds > 1 || might > 1 || will > 1 || fate > 1
+
+    amt = char['amt']
+
+    (1..amt).each do |num|
+      num_str = amt > 1 ? " ##{num}" : ''
+
+      entry = <<-ENTRY_END.chomp
+    {
+      "name": "#{name}#{num_str}",
+      #{field_str("wounds", wounds, ',')}
+      #{field_str("might", might, ',')}
+      #{field_str("will", will, ',')}
+      #{field_str("fate", fate, '')}
+    }
+ENTRY_END
+
+      entries.push(entry)
+    end
+  end
+end
+
+File.open('hero-stats.json', 'w') do |f|
+  f.puts('{')
+  f.puts('  "heroes": [')
+  f.puts(entries.join(",\n"))
+  f.puts('  ]')
+  f.puts('}')
+end

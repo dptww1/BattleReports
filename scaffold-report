@@ -22,6 +22,10 @@ end
 # Main program
 #------------------------------------------------------------------------
 
+puts
+puts "DID YOU RUN mkherostats?"
+puts
+
 print "Date of Battle (YYYYMMDD)? "
 @date_str = gets.chomp
 
