@@ -28,7 +28,7 @@ entries = []
 
     # No need to track stats unless the characters has
     #  >1 Wounds, Might, Will, and/or Fate
-    next unless wounds > 1 || might > 1 || will > 1 || fate > 1
+    next unless wounds > 1 || might > 0 || will > 0 || fate > 0
 
     amt = char['amt']
 
